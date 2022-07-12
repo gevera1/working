@@ -88,4 +88,4 @@ augroup filetype_vim
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-colorscheme desert
+colorscheme monokai "Must have installed already
