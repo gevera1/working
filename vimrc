@@ -53,6 +53,8 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+execute pathogen#infect()
+
 set nocompatible
 filetype on
 filetype plugin on
@@ -61,8 +63,8 @@ syntax on
 set number
 set cursorline
 set cursorcolumn
-set shiftwidth=8
-set tabstop=8
+set shiftwidth=2
+set tabstop=2
 set expandtab
 set nobackup
 set nowrap
@@ -78,6 +80,10 @@ set history=1000
 set wildmenu
 set wildmode=list:longest      
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+set laststatus=2
+set statusline=
+set statusline+=%F
+set statusline+=\ %l:%c
 
 if $TERM == "xterm-256color"
         set t_Co=256
@@ -88,4 +94,26 @@ augroup filetype_vim
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+
 colorscheme monokai "Must have installed already
+
+set encoding=utf-8
