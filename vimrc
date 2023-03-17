@@ -53,8 +53,6 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-execute pathogen#infect()
-
 set nocompatible
 filetype on
 filetype plugin on
@@ -67,7 +65,8 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set nobackup
-set nowrap
+set wrap
+set linebreak
 set scrolloff=10
 set incsearch
 set ignorecase
@@ -84,6 +83,17 @@ set laststatus=2
 set statusline=
 set statusline+=%F
 set statusline+=\ %l:%c
+set number relativenumber
+set nu rnu
+
+call plug#begin()
+
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+
+set encoding=UTF-8
+
+call plug#end()
 
 if $TERM == "xterm-256color"
         set t_Co=256
