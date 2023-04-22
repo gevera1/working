@@ -83,13 +83,16 @@ set laststatus=2
 set statusline=
 set statusline+=%F
 set statusline+=\ %l:%c
+hi StatusLine   ctermfg=8   ctermbg=2   cterm=NONE
+hi StatusLineNC ctermfg=2   ctermbg=8   cterm=NONE
 set number relativenumber
 set nu rnu
 
 call plug#begin()
 
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
-Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/preservim/nerdtree'      " NerdTree
+Plug 'https://github.com/ryanoasis/vim-devicons'  " Developer Icons
+Plug 'lervag/vimtex'
 
 set encoding=UTF-8
 

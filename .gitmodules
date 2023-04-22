@@ -1,0 +1,3 @@
+[submodule "vim/plugged/devicons"]
+	path = vim/plugged/devicons
+	url = https://github.com/ryanoasis/vim-devicons
