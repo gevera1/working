@@ -88,14 +88,33 @@ hi StatusLineNC ctermfg=2   ctermbg=8   cterm=NONE
 set number relativenumber
 set nu rnu
 
-call plug#begin()
+let g:lightline = {'colorscheme': 'one'}
+let g:rehash256 = 1
 
-Plug 'https://github.com/preservim/nerdtree'      " NerdTree
-Plug 'https://github.com/ryanoasis/vim-devicons'  " Developer Icons
-Plug 'lervag/vimtex'
+call plug#begin('~/.vim/plugged')
 
-set encoding=UTF-8
+" Make sure you use single quotes
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" On-demand loading
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'itchyny/lightline.vim'
+
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Initialize plugin system
 call plug#end()
 
 if $TERM == "xterm-256color"
@@ -127,6 +146,6 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
-colorscheme monokai "Must have installed already
+colorscheme molokai "Must have installed already
 
 set encoding=utf-8
