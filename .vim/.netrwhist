@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/local/mnt/workspace/builds/kailua/220817_agevero_BOOT.MXF.2.1-00688-KAILUA-1_01'
-let g:netrw_dirhist_2='/local/mnt/workspace/builds/lanai/core.boot.6.1.test_ch/boot_images/boot/QcomPkg/Library/PlatformInfoLib'
-let g:netrw_dirhist_3='/usr2/agevero/.local/bin'
